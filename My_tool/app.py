@@ -17,12 +17,12 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # Load credentials securely from environment variable
 creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
-
 if creds_json:
-    creds_dict = json.loads(creds_json)
-    CREDS = service_account.Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
+    info = json.loads(creds_json)
+    CREDS = Credentials.from_service_account_info(info, scopes=SCOPES)
+    client = gspread.authorize(CREDS)
 else:
-    raise Exception("❌ GOOGLE_CREDENTIALS_JSON not found in environment variables.")
+    raise Exception("Missing Google credentials in environment variable.")
 
 client = gspread.authorize(CREDS)
 
@@ -174,3 +174,4 @@ def download_excel():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
