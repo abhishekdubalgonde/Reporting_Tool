@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Form</title>
+  <!-- <meta http-equiv="refresh" content="3"> -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward_ios,GRAD@24,400,0,0&icon_names=arrow_back_ios" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=REM:ital,wght@0,100..900;1,100..900&family=Salsa&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+
+<body>
+  <div class="Hero">
+    <div class="container2">
+      <button id="menu-btn"> < </button>
+          <div class="text-center menubar glass-card" id="side-menu">
+            <span class="text-center me-3 h2_tag">👨‍💻 <strong> {{ user }}</strong></span>
+            <div class="s_menu">
+              <div class="text-center">
+                <a href="{{ url_for('home') }}">🏠Home</a>
+                <a href="/view">📊 View Sheet Data</a>
+              </div>
+              <a href="{{ url_for('logout') }}" class=" logout btn btn-outline-danger btn-sm">Logout <i
+                  class="fa-solid fa-right-from-bracket"></i> </a>
+            </div>
+          </div>

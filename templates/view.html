@@ -1,0 +1,76 @@
+{% include 'header.html' %}
+
+<div class="container view_container">
+  <div class="d-flex justify-content-between align-items-center my_r">
+    <h3>My Report 📑</h3>
+  </div>
+
+  <div class="mb-3 align-items-end">
+    <form method="POST" action="{{ url_for('filter_data') }}" class="col-md-8 d-flex">
+      <div class="time_box filter_box">
+        <div class="input-box">
+          <input type="date" name="start_date" value="{{ start or '' }}" required placeholder=" ">
+          <label>Start Date</label>
+        </div>
+        <div class="input-box">
+          <input type="date" name="end_date" value="{{ end or '' }}" required placeholder=" ">
+          <label class="">End Date</label>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="filter">Filter</button>
+      </div>
+    </form>
+    <form method="POST" action="{{ url_for('download_excel') }}" class="text-end download_sheet">
+      <input type="hidden" name="start_date" value="{{ start or '' }}">
+      <input type="hidden" name="end_date" value="{{ end or '' }}">
+      <button type="submit" class="btn btn-success mt-3" {% if not data %}disabled{% endif %}>⬇ Download
+        Excel</button>
+    </form>
+  </div>
+
+</div>
+
+{% if data %}
+<div class="scroll-x" id="scroll-x">
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        {% for cell in row %}
+        <td>{{ cell }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="alert alert-warning">No records found for the selected range.</div>
+{% endif %}
+</div>
+</div>
+</body>
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("side-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("menu-open");
+
+    // Change icon < >
+    if (menu.classList.contains("menu-open")) {
+      btn.textContent = ">";
+    } else {
+      btn.textContent = "<";
+    }
+
+    // Rotate button
+    btn.classList.toggle("rotate");
+  });
+
+</script>
+</html>

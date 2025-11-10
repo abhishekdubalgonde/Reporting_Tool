@@ -1,0 +1,85 @@
+{% include 'header.html' %}
+
+
+<div class="form_body2">
+
+  <form class="" action="/submit" method="POST">
+    <h2 class="salsa-regular h_tag">Add Your Ticket 😊</h2>
+    <div class="form_cont">
+      <div class="left_box">
+        <div class="input-box">
+          <input type="date" name="created_date" required placeholder=" ">
+          <label>Created Date</label>
+        </div>
+        <div class="time_box">
+          <div class="input-box">
+            <input type="time" name="start_time">
+            <label>Start Time</label>
+          </div>
+          <div class="input-box">
+            <input type="time" name="end_time" required placeholder=" ">
+            <label>End Time</label>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <input type="text" name="user_name" required placeholder=" ">
+          <label>User Name</label>
+        </div>
+
+        <div class="input-box">
+          <input type="text" name="process" required placeholder=" ">
+          <label>Process</label>
+        </div>
+
+        <div class="input-box">
+          <input type="text" name="reported_by" required placeholder=" ">
+          <label>Reported By</label>
+        </div>
+      </div>
+
+      <div class="right_box">
+        <div class="input-box">
+          <input type="text" name="issue_category" required placeholder=" ">
+          <label>Issue Category</label>
+        </div>
+
+        <div class="input-box">
+          <input type="text" name="sub_category" required placeholder=" ">
+          <label>Sub-category</label>
+        </div>
+
+        <div class="input-box">
+          <textarea name="remarks" rows="3" required placeholder=" "></textarea>
+          <label>Remarks</label>
+        </div>
+
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+</div>
+</div>
+</body>
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("side-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("menu-open");
+
+    // Change icon < >
+    if (menu.classList.contains("menu-open")) {
+      btn.textContent = ">";
+    } else {
+      btn.textContent = "<";
+    }
+
+    // Rotate button
+    btn.classList.toggle("rotate");
+  });
+</script>
+
+</html>
